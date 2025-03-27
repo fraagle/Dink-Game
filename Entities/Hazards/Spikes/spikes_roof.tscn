@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdvlqxd6iwma3"]
+
+[ext_resource type="PackedScene" uid="uid://b0v8qmk0gbm8m" path="res://Entities/Hazards/Spikes/spikes.tscn" id="1_ntuof"]
+
+[node name="Spikes" instance=ExtResource("1_ntuof")]
+rotation = 3.14159
+metadata/_edit_group_ = true

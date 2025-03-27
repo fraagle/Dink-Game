@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnsghaw11i2af"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bf28n"]
+size = Vector2(512, 320)
+
+[node name="CameraFollowArea" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(256, 160)
+shape = SubResource("RectangleShape2D_bf28n")
+disabled = true

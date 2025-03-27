@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://hlvdykripu2p"]
+
+[ext_resource type="Texture2D" uid="uid://d1bnv27km5wjp" path="res://Tilemap/bw_tiles.png" id="1_w85av"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_myhe3"]
+texture = ExtResource("1_w85av")
+0:0/0 = 0
+1:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+2:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_7mwuk"]
+sources/0 = SubResource("TileSetAtlasSource_myhe3")
+
+[node name="BackgroundTileMap" type="TileMapLayer"]
+tile_set = SubResource("TileSet_7mwuk")

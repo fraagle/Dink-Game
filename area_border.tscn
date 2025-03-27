@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2krxjqibc1f1"]
+
+[ext_resource type="Texture2D" uid="uid://v4f0e78rq25d" path="res://area_border.png" id="1_rilqs"]
+
+[node name="AreaBorder" type="Node2D"]
+position = Vector2(1024, 0)
+
+[node name="AreaBorder" type="Sprite2D" parent="."]
+texture = ExtResource("1_rilqs")
+
+[node name="AreaBorder2" type="Sprite2D" parent="."]
+position = Vector2(512, 0)
+texture = ExtResource("1_rilqs")
+
+[node name="AreaBorder3" type="Sprite2D" parent="."]
+position = Vector2(0, 320)
+texture = ExtResource("1_rilqs")
+
+[node name="AreaBorder4" type="Sprite2D" parent="."]
+position = Vector2(512, 320)
+texture = ExtResource("1_rilqs")

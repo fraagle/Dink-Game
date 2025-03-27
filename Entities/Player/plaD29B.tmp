@@ -1,0 +1,85 @@
+[gd_scene load_steps=9 format=3 uid="uid://b083a8jgx5br2"]
+
+[ext_resource type="Script" path="res://Entities/Player/player.gd" id="1_1bvpq"]
+[ext_resource type="Resource" uid="uid://cmwipgqef1enh" path="res://MovementData/DefaultMovementData.tres" id="2_c61qj"]
+[ext_resource type="Shader" path="res://Entities/Player/player.gdshader" id="2_s51co"]
+[ext_resource type="Texture2D" uid="uid://nii0avk62qon" path="res://Entities/Player/ball.png" id="4_j3o1i"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_elyaw"]
+radius = 3.0
+height = 6.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_31284"]
+shader = ExtResource("2_s51co")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mhn4c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_j3o1i")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 6.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"run",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_625at"]
+size = Vector2(3.75, 3.75)
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(0, -9)
+collision_layer = 2
+collision_mask = 5
+floor_constant_speed = true
+floor_snap_length = 3.0
+safe_margin = 0.1
+script = ExtResource("1_1bvpq")
+movement_data = ExtResource("2_c61qj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.0312481, 6)
+shape = SubResource("CapsuleShape2D_elyaw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_31284")
+position = Vector2(-0.031249, 6)
+scale = Vector2(0.496094, 0.5)
+sprite_frames = SubResource("SpriteFrames_mhn4c")
+animation = &"idle"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1, -23)
+ignore_rotation = false
+enabled = false
+process_callback = 0
+position_smoothing_speed = 10.0
+
+[node name="CoyoteJumpTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="WallJumpTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="HazardDetector" type="Area2D" parent="."]
+position = Vector2(25, 2)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HazardDetector"]
+position = Vector2(-25.0312, 4)
+shape = SubResource("RectangleShape2D_625at")
+debug_color = Color(0.798968, 0.411096, 0.259094, 0.42)
+
+[connection signal="area_entered" from="HazardDetector" to="." method="_on_hazard_detector_area_entered"]

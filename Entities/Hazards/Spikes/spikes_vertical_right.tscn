@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhgxu1svf3h5i"]
+
+[ext_resource type="PackedScene" uid="uid://b0v8qmk0gbm8m" path="res://Entities/Hazards/Spikes/spikes.tscn" id="1_mqbir"]
+
+[sub_resource type="GDScript" id="GDScript_gw1dm"]
+script/source = "extends Node2D
+
+@onready var player: CharacterBody2D = $\"../../Player\"
+
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+func _on_hazard_area_body_entered(body: Node2D) -> void:
+	
+	Events.death.emit()
+	#player.position = spawn_position
+"
+
+[node name="Spikes" instance=ExtResource("1_mqbir")]
+rotation = 4.71239
+script = SubResource("GDScript_gw1dm")
+metadata/_edit_group_ = true

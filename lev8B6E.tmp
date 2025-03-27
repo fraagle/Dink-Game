@@ -1,0 +1,138 @@
+[gd_scene load_steps=10 format=4 uid="uid://ddbo0oc48htdg"]
+
+[ext_resource type="Script" path="res://world.gd" id="1_eyud4"]
+[ext_resource type="PackedScene" uid="uid://b083a8jgx5br2" path="res://Entities/Player/player.tscn" id="2_r2fff"]
+[ext_resource type="PackedScene" uid="uid://c2mae4lmw2kqp" path="res://UI/level_completed.tscn" id="3_5hxgs"]
+[ext_resource type="Script" path="res://camera_panning.gd" id="3_voi8o"]
+[ext_resource type="PackedScene" uid="uid://n1beymi47t1x" path="res://UI/death_message.tscn" id="4_8i8h0"]
+[ext_resource type="PackedScene" uid="uid://bjvalh71ivk75" path="res://level_tile_map.tscn" id="5_2r6o1"]
+
+[sub_resource type="Animation" id="Animation_4lqwk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/StartIn/CenterContainer/StartInLabel:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["start in: 3"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/StartIn:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_ri3c0"]
+resource_name = "count_down"
+length = 3.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/StartIn/CenterContainer/StartInLabel:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 1.2, 2.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": ["start in: 3", "start in: 2
+", "start in: 1
+"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/StartIn:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lu3ed"]
+_data = {
+"RESET": SubResource("Animation_4lqwk"),
+"count_down": SubResource("Animation_ri3c0")
+}
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_eyud4")
+
+[node name="Player" parent="." instance=ExtResource("2_r2fff")]
+position = Vector2(72, 288)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+limit_bottom = 320
+drag_vertical_enabled = true
+drag_top_margin = 0.5
+drag_bottom_margin = 0.5
+script = ExtResource("3_voi8o")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="LevelCompleted" parent="CanvasLayer" instance=ExtResource("3_5hxgs")]
+visible = false
+
+[node name="DeathMessage" parent="CanvasLayer" instance=ExtResource("4_8i8h0")]
+visible = false
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -208.0
+offset_top = -2.0
+offset_right = -99.0
+offset_bottom = 21.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="StartIn" type="ColorRect" parent="CanvasLayer"]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.388235)
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/StartIn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartInLabel" type="Label" parent="CanvasLayer/StartIn/CenterContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "start in: 3"
+
+[node name="LevelTileMap" parent="." instance=ExtResource("5_2r6o1")]
+tile_map_data = PackedByteArray("AAAfABMAAwACAAAAAAAeABMAAwACAAAAAAAdABMAAwACAAAAAAAcABMAAwACAAAAAAAbABMAAwACAAAAAAAaABMAAwACAAAAAAAZABMAAwACAAAAAAAYABMAAwADAAAAAAAXABMAAwADAAAAAAAWABMAAwACAAAAAAAVABMAAwACAAAAAAAUABMAAwACAAAAAAATABMAAwADAAAAAAASABMAAwACAAAAAAARABMAAwACAAAAAAAQABMAAwADAAAAAAAPABMAAwACAAAAAAAOABMAAwACAAAAAAANABMAAwADAAAAAAAMABMAAwADAAAAAAALABMAAwACAAAAAAAKABMAAwADAAAAAAAJABMAAwACAAAAAAAIABMAAwADAAAAAAAHABMAAwACAAAAAAAGABMAAwACAAAAAAAFABMAAwADAAAAAAAEABMAAwADAAAAAAADABMAAwADAAAAAAACABMAAwADAAAAAAABABMAAwADAAAAAAAAABMAAwACAAAAAAD//xMAAwADAAEAAAD//xIAAwAEAAEAAAD//xEAAwAEAAIAAAD//xAAAwAEAAIAAAD//w8AAwAEAAIAAAD//w4AAwAEAAEAAAD//w0AAwAEAAEAAAD//wwAAwAEAAEAAAD//wsAAwAEAAEAAAD//woAAwAEAAIAAAD//wkAAwAEAAEAAAD//wgAAwAEAAIAAAD//wcAAwAEAAEAAAD//wYAAwAEAAIAAAD//wUAAwAEAAEAAAD//wQAAwAEAAIAAAD//wMAAwAEAAEAAAD//wIAAwAEAAEAAAD//wEAAwAEAAEAAAD//wAAAwAIAAEAAAD/////AwADAAAAAAAgAP//AwACAAAAAAAfAP//AwADAAAAAAAeAP//AwADAAAAAAAdAP//AwACAAAAAAAcAP//AwADAAAAAAAbAP//AwADAAAAAAAaAP//AwACAAAAAAAZAP//AwACAAAAAAAYAP//AwADAAAAAAAXAP//AwADAAAAAAAWAP//AwADAAAAAAAVAP//AwADAAAAAAAUAP//AwADAAAAAAATAP//AwADAAAAAAASAP//AwADAAAAAAARAP//AwACAAAAAAAQAP//AwACAAAAAAAPAP//AwACAAAAAAAOAP//AwACAAAAAAANAP//AwACAAAAAAAMAP//AwADAAAAAAALAP//AwACAAAAAAAKAP//AwACAAAAAAAJAP//AwADAAAAAAAIAP//AwADAAAAAAAHAP//AwADAAAAAAAGAP//AwADAAAAAAAFAP//AwADAAAAAAAEAP//AwACAAAAAAADAP//AwACAAAAAAACAP//AwACAAAAAAABAP//AwACAAAAAAAAAP//AwADAAAAAAAgABQAAwADAAMAAAAgABMAAwACAAAAAAAgAA8AAwACAAMAAAAgAA4AAwACAAIAAAAgAA0AAwACAAIAAAAgAAwAAwADAAIAAAAgAAsAAwACAAEAAAAgAAoAAwADAAIAAAAgAAkAAwACAAIAAAAgAAgAAwACAAEAAAAgAAcAAwADAAEAAAAgAAYAAwACAAIAAAAgAAUAAwACAAIAAAAgAAQAAwACAAEAAAAgAAMAAwADAAEAAAAgAAIAAwACAAEAAAAgAAEAAwADAAEAAAAgAAAAAwACAAEAAAAfABQAAwADAAMAAAAeABQAAwACAAMAAAAdABQAAwACAAMAAAAcABQAAwACAAMAAAAbABQAAwACAAMAAAAaABQAAwADAAMAAAAZABQAAwADAAMAAAAYABQAAwACAAMAAAAXABQAAwADAAMAAAAWABQAAwACAAMAAAAVABQAAwADAAMAAAAUABQAAwACAAMAAAATABQAAwACAAMAAAASABQAAwACAAMAAAARABQAAwACAAMAAAAQABQAAwACAAMAAAAPABQAAwADAAMAAAAOABQAAwADAAMAAAANABQAAwACAAMAAAAMABQAAwADAAMAAAALABQAAwADAAMAAAAKABQAAwADAAMAAAAJABQAAwADAAMAAAAIABQAAwADAAMAAAAHABQAAwACAAMAAAAGABQAAwACAAMAAAAFABQAAwADAAMAAAAEABQAAwADAAMAAAADABQAAwACAAMAAAACABQAAwADAAMAAAABABQAAwADAAMAAAAAABQAAwACAAMAAAD//xQAAwADAAMAAAAhAA8AAwAEAAMAAAAhAA4AAwAEAAEAAAAhAA0AAwAEAAEAAAAhAAwAAwAEAAIAAAAhAAsAAwAEAAEAAAAhAAoAAwAEAAEAAAAhAAkAAwAEAAIAAAAhAAgAAwAEAAIAAAAhAAcAAwAEAAEAAAAhAAYAAwAEAAEAAAAhAAUAAwAEAAIAAAAhAAQAAwAEAAIAAAAhAAMAAwAEAAEAAAAhAAIAAwAEAAEAAAAhAAEAAwAEAAEAAAAhAAAAAwAEAAIAAAAhAP//AwAEAAAAAAAhABQAAwAEAAMAAAAhABMAAwAEAAAAAAAfAA8AAwADAAMAAAAfAA4AAwADAAIAAAAfAA0AAwADAAIAAAAfAAwAAwADAAIAAAAfAAsAAwACAAEAAAAfAAoAAwACAAIAAAAfAAkAAwADAAEAAAAfAAgAAwADAAIAAAAfAAcAAwADAAEAAAAfAAYAAwACAAIAAAAfAAUAAwADAAEAAAAfAAQAAwACAAIAAAAfAAMAAwADAAIAAAAfAAIAAwACAAEAAAAfAAEAAwACAAEAAAAfAAAAAwACAAEAAAAeAA8AAwABAAMAAAAeAA4AAwABAAEAAAAeAA0AAwABAAIAAAAeAAwAAwABAAEAAAAeAAsAAwABAAEAAAAeAAoAAwABAAIAAAAeAAkAAwABAAIAAAAeAAgAAwABAAIAAAAeAAcAAwABAAEAAAAeAAYAAwABAAIAAAAeAAUAAwABAAIAAAAeAAQAAwABAAEAAAAeAAMAAwABAAIAAAAeAAIAAwABAAEAAAAeAAEAAwABAAEAAAAeAAAAAwAJAAEAAAAdAAAAAwACAAMAAAAcAAAAAwADAAMAAAAbAAAAAwADAAMAAAAaAAAAAwACAAMAAAAZAAAAAwADAAMAAAAYAAAAAwACAAMAAAAXAAAAAwACAAMAAAAWAAAAAwACAAMAAAAVAAAAAwADAAMAAAAUAAAAAwACAAMAAAATAAAAAwADAAMAAAASAAAAAwACAAMAAAARAAAAAwADAAMAAAAQAAAAAwADAAMAAAAPAAAAAwADAAMAAAAOAAAAAwADAAMAAAANAAAAAwACAAMAAAAMAAAAAwACAAMAAAALAAAAAwADAAMAAAAKAAAAAwACAAMAAAAJAAAAAwADAAMAAAAIAAAAAwACAAMAAAAHAAAAAwACAAMAAAAGAAAAAwADAAMAAAAFAAAAAwADAAMAAAAEAAAAAwACAAMAAAADAAAAAwACAAMAAAACAAAAAwADAAMAAAABAAAAAwADAAMAAAAAAAAAAwADAAMAAAD+/xQAAwADAAMAAAD+/xMAAwACAAEAAAD+/xIAAwADAAEAAAD+/xEAAwACAAEAAAD+/xAAAwACAAIAAAD+/w8AAwACAAIAAAD+/w4AAwACAAIAAAD+/w0AAwACAAIAAAD+/wwAAwADAAEAAAD+/wsAAwACAAIAAAD+/woAAwADAAIAAAD+/wkAAwADAAIAAAD+/wgAAwADAAEAAAD+/wcAAwADAAEAAAD+/wYAAwADAAIAAAD+/wUAAwACAAEAAAD+/wQAAwACAAEAAAD+/wMAAwADAAIAAAD+/wIAAwACAAIAAAD+/wEAAwACAAIAAAD+/wAAAwACAAIAAAD+////AwACAAAAAAD9/xQAAwABAAMAAAD9/xMAAwABAAIAAAD9/xIAAwABAAIAAAD9/xEAAwABAAIAAAD9/xAAAwABAAIAAAD9/w8AAwABAAIAAAD9/w4AAwABAAEAAAD9/w0AAwABAAIAAAD9/wwAAwABAAEAAAD9/wsAAwABAAIAAAD9/woAAwABAAEAAAD9/wkAAwABAAIAAAD9/wgAAwABAAIAAAD9/wcAAwABAAEAAAD9/wYAAwABAAIAAAD9/wUAAwABAAIAAAD9/wQAAwABAAEAAAD9/wMAAwABAAEAAAD9/wIAAwABAAEAAAD9/wEAAwABAAIAAAD9/wAAAwABAAIAAAD9////AwABAAAAAAA=")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+process_mode = 3
+libraries = {
+"": SubResource("AnimationLibrary_lu3ed")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

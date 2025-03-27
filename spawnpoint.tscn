@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bp5q02ha21kn7"]
+
+[ext_resource type="Script" path="res://spawnpoint.gd" id="1_w40yv"]
+[ext_resource type="Texture2D" uid="uid://bb4s0xwmt2oxn" path="res://UI/9slice_black.png" id="2_nh375"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_o4ar2"]
+a = Vector2(-1, -43)
+b = Vector2(-1, 43)
+
+[node name="Spawnpoint" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_w40yv")
+
+[node name="Level2" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = SubResource("SegmentShape2D_o4ar2")
+debug_color = Color(0.857023, 0.365594, 3.85046e-07, 0.42)
+
+[node name="9SliceBlack" type="Sprite2D" parent="."]
+position = Vector2(0, 48)
+texture = ExtResource("2_nh375")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
