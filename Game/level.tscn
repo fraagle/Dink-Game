@@ -40,7 +40,7 @@ movement_data = ExtResource("3_sin03")
 position = Vector2(-128, 208)
 
 [node name="Goal" parent="." instance=ExtResource("12_we6pn")]
-position = Vector2(-128, 304)
+position = Vector2(-64, 192)
 
 [node name="Spikes" type="Node" parent="."]
 

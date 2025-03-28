@@ -6,7 +6,7 @@ class_name level
 @export var print_world_events: bool = false
 
 # Exports
-@export var next_level: PackedScene
+@export var next_scene: PackedScene
 
 # Variables
 @onready var death_count: int = 0
@@ -59,11 +59,17 @@ func respawn(spikes):
 func reached_goal(goal):
 	print('changing scene!')
 	
+	if next_scene is PackedScene:
+		await LevelTransition.fade_to_black()
+		get_tree().change_scene_to_packed(next_scene)
+		LevelTransition.fade_from_black()
+	return
 	
-	if not next_level:
-		respawn(self)
-	else:
-		get_tree().change_scene_to_packed(next_level)
+	
+	#if not next_level:
+		#respawn(self)
+	#else:
+		#get_tree().change_scene_to_packed(next_level)
 	
 	
 	
