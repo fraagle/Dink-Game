@@ -1,8 +1,8 @@
 [gd_scene load_steps=51 format=3 uid="uid://b083a8jgx5br2"]
 
-[ext_resource type="Script" path="res://Entities/Player/player.gd" id="1_1bvpq"]
+[ext_resource type="Script" uid="uid://c12ehp0yw52rh" path="res://Entities/Player/player.gd" id="1_1bvpq"]
 [ext_resource type="Resource" uid="uid://cmwipgqef1enh" path="res://MovementData/DefaultMovementData.tres" id="2_c61qj"]
-[ext_resource type="Shader" path="res://Entities/Player/player.gdshader" id="2_s51co"]
+[ext_resource type="Shader" uid="uid://rt8fjh3k72wn" path="res://Entities/Player/player.gdshader" id="2_s51co"]
 [ext_resource type="Texture2D" uid="uid://nii0avk62qon" path="res://Entities/Player/ball.png" id="4_j3o1i"]
 [ext_resource type="Texture2D" uid="uid://dubhao2qusthi" path="res://Entities/Player/Art/_Fall.png" id="4_now88"]
 [ext_resource type="Texture2D" uid="uid://luk6ush6oalw" path="res://Entities/Player/Art/_Jump.png" id="5_o0vq0"]

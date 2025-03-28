@@ -1,10 +1,10 @@
 [gd_scene load_steps=30 format=4 uid="uid://ddbo0oc48htdg"]
 
-[ext_resource type="Script" path="res://world.gd" id="1_8duiu"]
+[ext_resource type="Script" uid="uid://iu1hekv8uypb" path="res://world.gd" id="1_8duiu"]
 [ext_resource type="PackedScene" uid="uid://c4cjcxd2ajqce" path="res://Levels/level_one.tscn" id="2_38nw7"]
 [ext_resource type="PackedScene" uid="uid://b083a8jgx5br2" path="res://Entities/Player/player.tscn" id="3_ogcv3"]
 [ext_resource type="Resource" uid="uid://vnx21x5prci4" path="res://MovementData/PlayerMovementData.tres" id="4_uevd1"]
-[ext_resource type="Script" path="res://camera_panning.gd" id="5_2bnav"]
+[ext_resource type="Script" uid="uid://cyn5mi0eptodm" path="res://camera_panning.gd" id="5_2bnav"]
 [ext_resource type="PackedScene" uid="uid://c2mae4lmw2kqp" path="res://UI/level_completed.tscn" id="6_e86xa"]
 [ext_resource type="PackedScene" uid="uid://n1beymi47t1x" path="res://UI/death_message.tscn" id="7_t6542"]
 [ext_resource type="PackedScene" uid="uid://bjvalh71ivk75" path="res://level_tile_map.tscn" id="8_esr86"]
@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://c8rkjjca5001c" path="res://dink.tscn" id="15_ysx12"]
 [ext_resource type="PackedScene" uid="uid://cnsghaw11i2af" path="res://camera_follow_area.tscn" id="16_kuhqf"]
 [ext_resource type="PackedScene" uid="uid://v1s5jib3hhd8" path="res://camera_area_detector.tscn" id="16_w13ll"]
-[ext_resource type="Script" path="res://camera_follow_area.gd" id="17_ktx7y"]
+[ext_resource type="Script" uid="uid://clsvipjytgkrq" path="res://camera_follow_area.gd" id="17_ktx7y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ffpor"]
 texture = ExtResource("9_hemwf")
@@ -4179,8 +4179,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lu3ed"]
 _data = {
-"RESET": SubResource("Animation_4lqwk"),
-"count_down": SubResource("Animation_ri3c0")
+&"RESET": SubResource("Animation_4lqwk"),
+&"count_down": SubResource("Animation_ri3c0")
 }
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_fwwco"]
@@ -4289,7 +4289,7 @@ text = "start in: 3"
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 process_mode = 3
 libraries = {
-"": SubResource("AnimationLibrary_lu3ed")
+&"": SubResource("AnimationLibrary_lu3ed")
 }
 
 [node name="Hazards" type="Node2D" parent="."]
@@ -5155,22 +5155,22 @@ shape = SubResource("RectangleShape2D_4xb1l")
 visible = false
 position = Vector2(1912, -96)
 amount = 100
-process_material = SubResource("ParticleProcessMaterial_d3tpc")
 lifetime = 5.0
+process_material = SubResource("ParticleProcessMaterial_d3tpc")
 
 [node name="Rain3" type="GPUParticles2D" parent="."]
 visible = false
 position = Vector2(3248, -944)
 amount = 100
-process_material = SubResource("ParticleProcessMaterial_d3tpc")
 lifetime = 5.0
+process_material = SubResource("ParticleProcessMaterial_d3tpc")
 
 [node name="Rain4" type="GPUParticles2D" parent="."]
 visible = false
 position = Vector2(3440, -936)
 amount = 100
-process_material = SubResource("ParticleProcessMaterial_d3tpc")
 lifetime = 5.0
+process_material = SubResource("ParticleProcessMaterial_d3tpc")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="CameraAreas/CameraFollowArea" to="CameraAreas/CameraFollowArea" method="_on_body_entered"]

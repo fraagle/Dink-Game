@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://hxk88pjkdmer"]
 
-[ext_resource type="Script" path="res://Entities/Collectables/heart.gd" id="1_00sdg"]
+[ext_resource type="Script" uid="uid://45yie3tx7xfl" path="res://Entities/Collectables/heart.gd" id="1_00sdg"]
 [ext_resource type="Texture2D" uid="uid://btdhvxiuoltoo" path="res://Entities/Collectables/star_idle-Sheet.png" id="2_hnlly"]
 [ext_resource type="Texture2D" uid="uid://deskxpdv8jsid" path="res://UI/9slice.png" id="2_lxppx"]
 

@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cc6ol5b345tw7" path="res://Levels/level_two.tscn" id="2_mruvq"]
 [ext_resource type="Resource" uid="uid://vnx21x5prci4" path="res://MovementData/PlayerMovementData.tres" id="3_31q1r"]
 [ext_resource type="PackedScene" uid="uid://b0v8qmk0gbm8m" path="res://Entities/Hazards/Spikes/spikes.tscn" id="4_jq0tn"]
-[ext_resource type="Script" path="res://camera_panning.gd" id="4_psvsa"]
+[ext_resource type="Script" uid="uid://cyn5mi0eptodm" path="res://camera_panning.gd" id="4_psvsa"]
 [ext_resource type="PackedScene" uid="uid://bkytjgo43iiiy" path="res://out_of_bounds.tscn" id="5_4hkcx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pkwtj"]

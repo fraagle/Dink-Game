@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bkytjgo43iiiy"]
 
 [ext_resource type="PackedScene" uid="uid://c0bps6jbk5b6i" path="res://Entities/Hazards/hazard_area.tscn" id="1_5prk3"]
-[ext_resource type="Script" path="res://out_of_bounds.gd" id="1_xibyl"]
+[ext_resource type="Script" uid="uid://bwuiqpbq4lyue" path="res://out_of_bounds.gd" id="1_xibyl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ehisr"]
 size = Vector2(245, 20)

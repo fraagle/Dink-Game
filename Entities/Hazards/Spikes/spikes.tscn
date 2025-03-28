@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b0v8qmk0gbm8m"]
 
-[ext_resource type="Script" path="res://Entities/Hazards/Spikes/spikes.gd" id="1_he4kf"]
+[ext_resource type="Script" uid="uid://8q2mm65w86ig" path="res://Entities/Hazards/Spikes/spikes.gd" id="1_he4kf"]
 [ext_resource type="Texture2D" uid="uid://bwghibvknt6uw" path="res://Entities/Hazards/Spikes/spikes.png" id="1_s6deg"]
 [ext_resource type="PackedScene" uid="uid://c0bps6jbk5b6i" path="res://Entities/Hazards/hazard_area.tscn" id="2_ayurs"]
 
