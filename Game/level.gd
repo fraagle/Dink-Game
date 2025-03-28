@@ -66,10 +66,4 @@ func reached_goal(goal):
 	return
 	
 	
-	#if not next_level:
-		#respawn(self)
-	#else:
-		#get_tree().change_scene_to_packed(next_level)
-	
-	
 	
