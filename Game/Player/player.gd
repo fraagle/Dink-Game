@@ -1,13 +1,14 @@
 extends CharacterBody2D
 
+class_name Player
 
 @export var movement_data: PlayerMovementData
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 @onready var starting_position = position
 
-@onready var camera_2d: Camera2D = $"../Camera2D"
-@onready var camdera_starting_position = camera_2d.position
+#@onready var camera_2d: Camera2D = $"../Camera2D"d
+#@onready var camdera_starting_position = camera_2d.position
 
 @onready var jump_buffer_timer: Timer = $JumpBufferTimer
 @onready var coyote_jump_timer: Timer = $CoyoteJumpTimer
@@ -300,8 +301,8 @@ func was_dashing_left() -> bool:
 #
 func handle_dash(input_axis, vert_input_axis, _delta):
 	if Input.is_action_just_pressed('shift') and can_dash and input_axis != 0:
-			if not is_on_wall():
-				dash_sound.play()
+			#if not is_on_wall():
+				#dash_sound.play()
 			last_input_axis = input_axis
 			do_dash = true
 			dash_duration_timer.start()
@@ -385,8 +386,7 @@ func _on_dash_effect_timer_timeout() -> void:
 	
 	
 	
-	
-func handle_dink(input_axis,delta):
+func handle_dink(input_axis, delta):
 		if target_position != Vector2.ZERO:
 			
 			dink_direction = (target_position - global_position).normalized()
@@ -396,6 +396,7 @@ func handle_dink(input_axis,delta):
 				do_dink(dink_direction)
 				dink_input_axis = input_axis
 				
+				
 		if input_axis != 0:
 			dink_radius.position.x = input_axis * dink_radius_pos
 	
@@ -404,7 +405,6 @@ func do_dink(dink_direction):
 		dink = true
 		velocity.x = dink_direction[0] * movement_data.dink_speed
 		velocity.y =  dink_direction[1] * movement_data.dink_speed 
-		#
 
 
 func _on_dink_detector_body_entered(body: Node2D) -> void:

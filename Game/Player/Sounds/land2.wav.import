@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://dawmyb02usu11"
-path="res://.godot/imported/land1.wav-8cffe030c7dfec7dc5ba675b3456f5a0.sample"
+uid="uid://c76srwg1fddqd"
+path="res://.godot/imported/land2.wav-9e6cec6c69450e02e77c9d8268e84a4f.sample"
 
 [deps]
 
-source_file="res://Entities/Player/Sounds/land1.wav"
-dest_files=["res://.godot/imported/land1.wav-8cffe030c7dfec7dc5ba675b3456f5a0.sample"]
+source_file="res://Game/Player/Sounds/land2.wav"
+dest_files=["res://.godot/imported/land2.wav-9e6cec6c69450e02e77c9d8268e84a4f.sample"]
 
 [params]
 

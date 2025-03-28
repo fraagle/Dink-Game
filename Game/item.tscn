@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfdcx88vtt7su"]
+
+[ext_resource type="Script" uid="uid://ce0ia73nduj7v" path="res://Game/item.gd" id="1_tnite"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sin03"]
+size = Vector2(15, 16)
+
+[node name="Item" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_tnite")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_sin03")
+debug_color = Color(0.78894, 0.430046, 0, 0.42)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

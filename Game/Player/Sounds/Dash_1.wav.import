@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://d3cmftuvaeyi4"
-path="res://.godot/imported/land4.wav-e682667d0a4d51240dc487995498572f.sample"
+uid="uid://caeuc7up15ham"
+path="res://.godot/imported/Dash_1.wav-a7928e26d873046e131b24292613fc68.sample"
 
 [deps]
 
-source_file="res://Entities/Player/Sounds/land4.wav"
-dest_files=["res://.godot/imported/land4.wav-e682667d0a4d51240dc487995498572f.sample"]
+source_file="res://Game/Player/Sounds/Dash_1.wav"
+dest_files=["res://.godot/imported/Dash_1.wav-a7928e26d873046e131b24292613fc68.sample"]
 
 [params]
 

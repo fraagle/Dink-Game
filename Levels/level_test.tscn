@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://fq5pxtubjho8"]
+[gd_scene load_steps=2 format=3 uid="uid://rik1q8f4eoo1"]
 
-[ext_resource type="PackedScene" uid="uid://b083a8jgx5br2" path="res://Entities/Player/player.tscn" id="1_u2mkm"]
+[ext_resource type="PackedScene" uid="uid://b083a8jgx5br2" path="res://Game/Player/player.tscn" id="1_u2mkm"]
 
 [node name="level_test" type="Node2D"]
 

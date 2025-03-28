@@ -1,17 +1,9 @@
-; Engine configuration file.
-; It's best edited using the editor UI and not directly,
-; since the parameters that go here are not all obvious.
-;
-; Format:
-;   [section] ; section goes between []
-;   param=value ; assign values to parameters
-
 config_version=5
 
 [application]
 
-config/name="Prototyping Ball"
-run/main_scene="res://MAP.tscn"
+config/name="Dink"
+run/main_scene="uid://bomtem6soaxyd"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 run/max_fps=60
 
@@ -22,12 +14,13 @@ LevelTransition="*res://UI/level_transition.tscn"
 
 [display]
 
-window/size/viewport_width=768
-window/size/viewport_height=480
+window/size/viewport_width=640
+window/size/viewport_height=360
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"
-window/stretch/aspect="keep_width"
+window/stretch/scale_mode="integer"
+window/vsync/vsync_mode=0
 
 [global_group]
 
@@ -36,7 +29,7 @@ CameraAreas=""
 [gui]
 
 theme/custom="res://UI/default_theme.tres"
-theme/custom_font="res://Fonts/Daydream.ttf"
+theme/custom_font="res://Game/Daydream.ttf"
 theme/default_font_subpixel_positioning=0
 
 [input]
@@ -165,3 +158,4 @@ move_dink={
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)

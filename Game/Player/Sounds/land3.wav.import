@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://ctovyvw5gk4vo"
-path="res://.godot/imported/land3.wav-6434e4437095e949f7fef8c113ba0eaa.sample"
+path="res://.godot/imported/land3.wav-c89d9e2481271b151a3ced9003ed072a.sample"
 
 [deps]
 
-source_file="res://Entities/Player/Sounds/land3.wav"
-dest_files=["res://.godot/imported/land3.wav-6434e4437095e949f7fef8c113ba0eaa.sample"]
+source_file="res://Game/Player/Sounds/land3.wav"
+dest_files=["res://.godot/imported/land3.wav-c89d9e2481271b151a3ced9003ed072a.sample"]
 
 [params]
 

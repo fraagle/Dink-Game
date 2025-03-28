@@ -2,23 +2,30 @@
 
 [ext_resource type="Script" uid="uid://8q2mm65w86ig" path="res://Entities/Hazards/Spikes/spikes.gd" id="1_he4kf"]
 [ext_resource type="Texture2D" uid="uid://bwghibvknt6uw" path="res://Entities/Hazards/Spikes/spikes.png" id="1_s6deg"]
-[ext_resource type="PackedScene" uid="uid://c0bps6jbk5b6i" path="res://Entities/Hazards/hazard_area.tscn" id="2_ayurs"]
 
-[node name="Spikes" type="Node2D"]
-position = Vector2(8, -8)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xpodv"]
+size = Vector2(16, 8)
+
+[node name="Spikes" type="StaticBody2D"]
 script = ExtResource("1_he4kf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_s6deg")
 
-[node name="HazardArea" parent="." instance=ExtResource("2_ayurs")]
+[node name="PlayerDetection" type="Area2D" parent="."]
+collision_layer = 4
 collision_mask = 2
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HazardArea"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerDetection"]
 polygon = PackedVector2Array(-8, 8, -4, 0, -3, 0, 0, 8)
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="HazardArea"]
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="PlayerDetection"]
 position = Vector2(7, 0)
 polygon = PackedVector2Array(-7, 8, -4, 0, -3, 0, 1, 8)
 
-[connection signal="body_entered" from="HazardArea" to="." method="_on_hazard_area_body_entered"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_xpodv")
+disabled = true
+
+[connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]

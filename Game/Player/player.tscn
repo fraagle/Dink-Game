@@ -1,19 +1,18 @@
-[gd_scene load_steps=51 format=3 uid="uid://b083a8jgx5br2"]
+[gd_scene load_steps=50 format=3 uid="uid://b083a8jgx5br2"]
 
-[ext_resource type="Script" uid="uid://c12ehp0yw52rh" path="res://Entities/Player/player.gd" id="1_1bvpq"]
+[ext_resource type="Script" uid="uid://c12ehp0yw52rh" path="res://Game/Player/player.gd" id="1_1bvpq"]
 [ext_resource type="Resource" uid="uid://cmwipgqef1enh" path="res://MovementData/DefaultMovementData.tres" id="2_c61qj"]
-[ext_resource type="Shader" uid="uid://rt8fjh3k72wn" path="res://Entities/Player/player.gdshader" id="2_s51co"]
-[ext_resource type="Texture2D" uid="uid://nii0avk62qon" path="res://Entities/Player/ball.png" id="4_j3o1i"]
-[ext_resource type="Texture2D" uid="uid://dubhao2qusthi" path="res://Entities/Player/Art/_Fall.png" id="4_now88"]
-[ext_resource type="Texture2D" uid="uid://luk6ush6oalw" path="res://Entities/Player/Art/_Jump.png" id="5_o0vq0"]
-[ext_resource type="Texture2D" uid="uid://dxlna6ofrndiw" path="res://Entities/Player/Art/_Idle.png" id="5_w0qvd"]
-[ext_resource type="Texture2D" uid="uid://b80arxmknjxyc" path="res://Entities/Player/Art/_Run.png" id="6_e3or5"]
-[ext_resource type="Texture2D" uid="uid://b0kpygqls5qv7" path="res://Entities/Player/Art/_WallSlide.png" id="8_uicvu"]
-[ext_resource type="AudioStream" uid="uid://caeuc7up15ham" path="res://Entities/Player/Sounds/Dash_1.wav" id="10_dfogs"]
-[ext_resource type="AudioStream" uid="uid://dawmyb02usu11" path="res://Entities/Player/Sounds/land1.wav" id="11_r3ksd"]
-[ext_resource type="AudioStream" uid="uid://c76srwg1fddqd" path="res://Entities/Player/Sounds/land2.wav" id="12_1hysp"]
-[ext_resource type="AudioStream" uid="uid://ctovyvw5gk4vo" path="res://Entities/Player/Sounds/land3.wav" id="13_7tmu5"]
-[ext_resource type="AudioStream" uid="uid://d3cmftuvaeyi4" path="res://Entities/Player/Sounds/land4.wav" id="14_k34v7"]
+[ext_resource type="Shader" uid="uid://rt8fjh3k72wn" path="res://Game/Player/player.gdshader" id="2_s51co"]
+[ext_resource type="Texture2D" uid="uid://nii0avk62qon" path="res://Game/Player/ball.png" id="4_j3o1i"]
+[ext_resource type="Texture2D" uid="uid://dubhao2qusthi" path="res://Game/Player/Art/_Fall.png" id="4_now88"]
+[ext_resource type="Texture2D" uid="uid://luk6ush6oalw" path="res://Game/Player/Art/_Jump.png" id="5_o0vq0"]
+[ext_resource type="Texture2D" uid="uid://dxlna6ofrndiw" path="res://Game/Player/Art/_Idle.png" id="5_w0qvd"]
+[ext_resource type="Texture2D" uid="uid://b80arxmknjxyc" path="res://Game/Player/Art/_Run.png" id="6_e3or5"]
+[ext_resource type="Texture2D" uid="uid://b0kpygqls5qv7" path="res://Game/Player/Art/_WallSlide.png" id="8_uicvu"]
+[ext_resource type="AudioStream" uid="uid://dawmyb02usu11" path="res://Game/Player/Sounds/land1.wav" id="11_r3ksd"]
+[ext_resource type="AudioStream" uid="uid://c76srwg1fddqd" path="res://Game/Player/Sounds/land2.wav" id="12_1hysp"]
+[ext_resource type="AudioStream" uid="uid://ctovyvw5gk4vo" path="res://Game/Player/Sounds/land3.wav" id="13_7tmu5"]
+[ext_resource type="AudioStream" uid="uid://d3cmftuvaeyi4" path="res://Game/Player/Sounds/land4.wav" id="14_k34v7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_31284"]
 shader = ExtResource("2_s51co")
@@ -273,7 +272,6 @@ radius = 4.0
 radius = 4.0
 
 [node name="Player" type="CharacterBody2D"]
-position = Vector2(0, -1)
 collision_layer = 2
 collision_mask = 1037
 floor_constant_speed = true
@@ -355,8 +353,6 @@ shape = SubResource("CircleShape2D_c2vdi")
 [node name="Node" type="Node" parent="."]
 
 [node name="DashSound" type="AudioStreamPlayer" parent="Node"]
-stream = ExtResource("10_dfogs")
-volume_db = -15.899
 
 [node name="Jump" type="Node" parent="Node"]
 

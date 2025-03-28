@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0kpygqls5qv7"
-path="res://.godot/imported/_WallSlide.png-ccf9a053341c8e270c3dbd1c38f7ff13.ctex"
+uid="uid://nii0avk62qon"
+path="res://.godot/imported/ball.png-048c061391762203efd5dd0a562d89f1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Entities/Player/Art/_WallSlide.png"
-dest_files=["res://.godot/imported/_WallSlide.png-ccf9a053341c8e270c3dbd1c38f7ff13.ctex"]
+source_file="res://Game/Player/ball.png"
+dest_files=["res://.godot/imported/ball.png-048c061391762203efd5dd0a562d89f1.ctex"]
 
 [params]
 
