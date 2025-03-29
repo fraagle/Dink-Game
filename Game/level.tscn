@@ -60,4 +60,4 @@ rotation = -1.5708
 [node name="Dinks" type="Node" parent="."]
 
 [node name="Dink" parent="Dinks" instance=ExtResource("9_plfiy")]
-position = Vector2(-80, 256)
+position = Vector2(-66, 242)
