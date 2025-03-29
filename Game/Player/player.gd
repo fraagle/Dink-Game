@@ -255,8 +255,8 @@ func wall_jump():
 	var wall_normal = get_wall_normal()
 	if wall_jump_timer.time_left > 0.0:
 		wall_normal = was_wall_normal
-	velocity.x = wall_normal.x * movement_data.air_velocity 
-	velocity.y = movement_data.jump_velocity
+	velocity.x = wall_normal.x * movement_data.air_velocity * 1.5
+	velocity.y = movement_data.jump_velocity 
 	just_wall_jumped = true
 
 func handle_boost_wall_jump(input_axis):
