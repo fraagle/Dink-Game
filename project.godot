@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Dink"
-run/main_scene="uid://bomtem6soaxyd"
+run/main_scene="uid://bujrsnpilm30j"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 run/max_fps=60
 

@@ -14,4 +14,4 @@ air_resistance = 50
 air_acceleration = 700.0
 slide_velocity = 60.0
 dash_speed = 300.0
-dink_speed = 500.0
+dink_speed = 475.0

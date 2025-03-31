@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=4 uid="uid://dhrkmu3mnep87"]
 
-[ext_resource type="PackedScene" uid="uid://bomtem6soaxyd" path="res://Game/level.tscn" id="1_8xv5u"]
+[ext_resource type="PackedScene" uid="uid://bomtem6soaxyd" path="res://Game/Levels/level.tscn" id="1_8xv5u"]
 [ext_resource type="PackedScene" uid="uid://r6rdxrtpywp1" path="res://Game/Levels/level_3.tscn" id="2_4uqwg"]
 [ext_resource type="PackedScene" uid="uid://b0v8qmk0gbm8m" path="res://Entities/Hazards/Spikes/spikes.tscn" id="2_sjnbl"]
 [ext_resource type="PackedScene" uid="uid://bdvlqxd6iwma3" path="res://Entities/Hazards/Spikes/spikes_roof.tscn" id="3_4uqwg"]

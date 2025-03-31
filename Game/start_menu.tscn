@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bujrsnpilm30j"]
 
 [ext_resource type="Script" uid="uid://2bv5k86qylrq" path="res://Game/start_menu.gd" id="1_23wg6"]
-[ext_resource type="PackedScene" uid="uid://coow7qtbwuj0m" path="res://Game/Levels/level_1.tscn" id="2_1xgxh"]
+[ext_resource type="PackedScene" uid="uid://coow7qtbwuj0m" path="res://Game/Levels/Level_1.tscn" id="2_1xgxh"]
 [ext_resource type="FontFile" uid="uid://bgc4yxm8ffbpw" path="res://Game/Daydream.ttf" id="3_f14c5"]
 
 [node name="Control" type="Control"]
