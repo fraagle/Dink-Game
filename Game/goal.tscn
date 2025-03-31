@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://da0hc1yhbfwvc"]
+[gd_scene load_steps=5 format=3 uid="uid://da0hc1yhbfwvc"]
 
 [ext_resource type="Script" uid="uid://ncywo18wdphq" path="res://Game/goal.gd" id="1_kncha"]
+[ext_resource type="Texture2D" uid="uid://drox0kdq8xhkc" path="res://Game/Flag/flag.png" id="2_ypsft"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_we6pn"]
 
@@ -20,5 +21,11 @@ shape = SubResource("RectangleShape2D_we6pn")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_0goqn")
 disabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -2)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("2_ypsft")
 
 [connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]

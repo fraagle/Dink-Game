@@ -1,16 +1,14 @@
 extends Node2D
 
-class_name level
+class_name Level
 
 #HouseKeeping
 @export var print_world_events: bool = false
 
-# Exports
-@export var next_scene: PackedScene
-
 # Variables
 @onready var death_count: int = 0
 
+@export var next_scene: PackedScene
 
 var spawn_point: Vector2
 
@@ -18,7 +16,7 @@ var spawn_point: Vector2
 func _ready() -> void:	
 	connect_children(self)
 	
-
+	
 func connect_children(parent):
 	for child in parent.get_children():
 		# Connecting Spawnpoints
@@ -58,12 +56,10 @@ func respawn(spikes):
 
 func reached_goal(goal):
 	print('changing scene!')
-	
 	if next_scene is PackedScene:
 		await LevelTransition.fade_to_black()
 		get_tree().change_scene_to_packed(next_scene)
 		LevelTransition.fade_from_black()
-	return
-	
-	
+	else:
+		get_tree().quit()
 	
