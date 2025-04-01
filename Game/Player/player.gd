@@ -3,9 +3,14 @@ extends CharacterBody2D
 class_name Player
 
 @onready var death_particles: GPUParticles2D = $DeathParticles
+@onready var respawn_particles: GPUParticles2D = $RespawnParticles
 
 @export var movement_data: PlayerMovementData
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+
+
+@onready var emote_animation: AnimationPlayer = $Emote/EmoteAnimation
+@onready var emote_face_happy: Sprite2D = $Emote/EmoteFaceHappy
 
 @onready var starting_position = position
 
@@ -67,14 +72,18 @@ var current_dash_axis: float = 0.0
 var dink_direction = Vector2.ZERO
 var dink_input_axis = 0
 
+@onready var enabled_controls: bool = true
+
 func _ready():
 	#camera_2d.position_smoothing_enabled = true
-	pass
+	emote_face_happy.visible = false
+	#pass
 
 func _physics_process(delta: float) -> void:
 	# runs for every physics tick frame of the game
 	# delta how long between each frame
 	
+	#if enabled_controls:
 	var input_axis := Input.get_axis("move_left", "move_right")
 	var vert_input_axis := Input.get_axis('move_up','move_down')
 	
@@ -173,13 +182,17 @@ func update_animations(input_axis):
 #### Movement 
 	
 func handle_acceleration(input_axis, delta):
+	
+	
 	if not is_on_floor(): return
-	if input_axis == 0:
-		# friction
-		velocity.x = move_toward(velocity.x, 0, movement_data.friction * delta)
-	else:
+	
+	if input_axis != 0 and enabled_controls:
 		# Acceleration
 		velocity.x = move_toward(velocity.x, movement_data.speed * input_axis, (movement_data.acceleration) * delta)
+	else:
+		# friction 
+		velocity.x = move_toward(velocity.x, 0, movement_data.friction * delta)
+	
 	
 func handle_air_acceleration(input_axis, delta):
 	if is_on_floor(): return
@@ -201,7 +214,7 @@ func handle_jump(delta):
 	if is_on_floor(): 
 		air_jump = true
 	
-	if Input.is_action_just_pressed("jump"):
+	if Input.is_action_just_pressed("jump") and enabled_controls:
 		#var jump_sound = 
 		#print(jump_sounds.pick_random())
 		#jump_1.play()		
@@ -438,3 +451,12 @@ func apply_death_effect() -> void:
 	
 #func ignore_input() -> void:
 	
+func apply_respawn_effect() -> void:
+	respawn_particles.restart()
+	respawn_particles.emitting = true
+	await respawn_particles.finished
+	
+	
+func emote() -> void:
+	emote_animation.play("SmileEmote")
+ 

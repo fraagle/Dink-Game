@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://drox0kdq8xhkc" path="res://Game/Flag/flag.png" id="2_ypsft"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_we6pn"]
+size = Vector2(32, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0goqn"]
 
@@ -16,6 +17,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
+position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_we6pn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

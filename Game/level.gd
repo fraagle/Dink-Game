@@ -67,6 +67,8 @@ func respawn(spikes):
 	death_count += 1
 	await get_tree().create_timer(0.5).timeout
 	$Player.position = spawn_point
+	$Player.apply_respawn_effect()
+	await get_tree().create_timer(0.5).timeout
 	$Player/AnimatedSprite2D.visible = true
 	#Input.flush_buffered_events()
 	await get_tree().create_timer(0.1).timeout
@@ -76,10 +78,15 @@ func respawn(spikes):
 	
 
 func reached_goal(goal):
+	$Player.emote()
+	#get_tree().paused = true
+	$Player.enabled_controls = false
 	print('changing scene!')
 	if next_scene is PackedScene:
+		#get_tree().paused = false
 		await LevelTransition.fade_to_black()
 		get_tree().change_scene_to_packed(next_scene)
+		$Player.enabled_controls = true
 		LevelTransition.fade_from_black()
 	else:
 		get_tree().quit()
