@@ -11,3 +11,5 @@ tile_map_data = PackedByteArray("AAAoAAEAAwAEAAEAAAAoAAAAAwAEAAIAAAAoAP//AwAEAAA
 
 [node name="Goal" parent="." index="4"]
 position = Vector2(576, 200)
+
+[editable path="Player"]

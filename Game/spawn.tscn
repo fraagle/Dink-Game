@@ -29,4 +29,7 @@ shape = SubResource("SegmentShape2D_o4ar2")
 disabled = true
 debug_color = Color(0.857023, 0.365594, 3.85046e-07, 0.42)
 
+[node name="SpawnPosition" type="Marker2D" parent="."]
+position = Vector2(0, 32)
+
 [connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]

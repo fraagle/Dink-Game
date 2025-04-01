@@ -7,6 +7,8 @@ class_name Level
 
 # Variables
 @onready var death_count: int = 0
+#@onready var is_processing_death = false
+@onready var processing_death: Timer = $Processing_death
 
 @export var next_scene: PackedScene
 
@@ -47,11 +49,30 @@ func set_spawn_point(spawn):
 		spawn_point = spawn.global_position
 		print('spawn set')
 	
-	
+
+
 func respawn(spikes):
-	$Player.position = spawn_point
-	print('respawn')
+	
+	if processing_death.time_left > 0.0:
+		print('death already processed')
+		return
+	
+	processing_death.start() # Timer runs always.
+	
+	$Player.velocity.x = 0.0
+	#set_process_input(false)
+	get_tree().paused = true
+	$Player/AnimatedSprite2D.visible = false
+	$Player.apply_death_effect()
 	death_count += 1
+	await get_tree().create_timer(0.5).timeout
+	$Player.position = spawn_point
+	$Player/AnimatedSprite2D.visible = true
+	#Input.flush_buffered_events()
+	await get_tree().create_timer(0.1).timeout
+	get_tree().paused = false
+	#set_process_input(true)
+
 	
 
 func reached_goal(goal):

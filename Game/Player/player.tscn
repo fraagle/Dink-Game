@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://b083a8jgx5br2"]
+[gd_scene load_steps=53 format=3 uid="uid://b083a8jgx5br2"]
 
 [ext_resource type="Script" uid="uid://c12ehp0yw52rh" path="res://Game/Player/player.gd" id="1_1bvpq"]
 [ext_resource type="Resource" uid="uid://cmwipgqef1enh" path="res://MovementData/DefaultMovementData.tres" id="2_c61qj"]
@@ -271,6 +271,28 @@ radius = 4.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_c2vdi"]
 radius = 4.0
 
+[sub_resource type="Gradient" id="Gradient_nfw5o"]
+offsets = PackedFloat32Array(0, 0.988981)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wlpas"]
+gradient = SubResource("Gradient_nfw5o")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_akrrf"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 5.0
+direction = Vector3(0.5, 1, 1)
+spread = 180.0
+initial_velocity_min = 200.0
+initial_velocity_max = 200.0
+gravity = Vector3(0, 100, 0)
+damping_min = 100.0
+damping_max = 1000.0
+scale_max = 2.0
+color_ramp = SubResource("GradientTexture1D_wlpas")
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 1037
@@ -371,6 +393,14 @@ volume_db = -5.299
 [node name="Land4" type="AudioStreamPlayer" parent="Node/Jump"]
 stream = ExtResource("14_k34v7")
 volume_db = -5.299
+
+[node name="DeathParticles" type="GPUParticles2D" parent="."]
+process_mode = 3
+emitting = false
+amount = 20
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_akrrf")
 
 [connection signal="timeout" from="JumpBufferTimer" to="." method="_on_jump_buffer_timer_timeout"]
 [connection signal="timeout" from="DashDurationTimer" to="." method="_on_dash_duration_timer_timeout"]

@@ -60,3 +60,7 @@ rotation = -1.5708
 
 [node name="Dink" parent="Dinks" instance=ExtResource("9_plfiy")]
 position = Vector2(-66, 242)
+
+[node name="Processing_death" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true

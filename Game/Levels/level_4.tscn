@@ -15,7 +15,7 @@ tile_map_data = PackedByteArray("AAAoAAEAAwAEAAEAAAAoAAAAAwAEAAIAAAAoAP//AwAEAAA
 position = Vector2(64, 184)
 
 [node name="Goal" parent="." index="4"]
-position = Vector2(576, 168)
+position = Vector2(576, 216)
 
 [node name="Spikes5" parent="Spikes" index="1" instance=ExtResource("2_51cus")]
 position = Vector2(264, 232)

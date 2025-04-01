@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 class_name Player
 
+@onready var death_particles: GPUParticles2D = $DeathParticles
+
 @export var movement_data: PlayerMovementData
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
@@ -403,6 +405,8 @@ func handle_dink(input_axis, delta):
 func do_dink(dink_direction):
 		#print(direction)
 		dink = true
+		#dink_particles.restart()
+		#dink_particles.emitting = true
 		velocity.x = dink_direction[0] * movement_data.dink_speed
 		velocity.y =  dink_direction[1] * movement_data.dink_speed 
 
@@ -423,4 +427,14 @@ func _on_dink_collision_area_entered(area: Area2D) -> void:
 			velocity.y = -movement_data.dink_speed 
 			dink = false
 	
+	
+
+func apply_death_effect() -> void:
+	# Applies oneshot particle effect when player dies.
+	print('emitting death particles')
+	death_particles.restart()
+	death_particles.emitting = true
+	await death_particles.finished
+	
+#func ignore_input() -> void:
 	
