@@ -266,40 +266,13 @@ size = Vector2(6, 6)
 size = Vector2(3.75, 3.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3r5h2"]
-size = Vector2(55.9999, 64)
+size = Vector2(55.9999, 56)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_77fjt"]
 radius = 4.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c2vdi"]
 radius = 4.0
-
-[sub_resource type="Animation" id="Animation_wlpas"]
-resource_name = "SmileEmote"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Emote/EmoteFaceHappy:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.202371, 0.301155),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0.1, 0.1), Vector2(3, 3), Vector2(2.8, 2.8)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Emote/EmoteFaceHappy:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.166667, 0.603133, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [false, true, true, false]
-}
 
 [sub_resource type="Animation" id="Animation_akrrf"]
 length = 0.001
@@ -326,6 +299,33 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_wlpas"]
+resource_name = "SmileEmote"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Emote/EmoteFaceHappy:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.202371, 0.301155),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.1, 0.1), Vector2(3, 3), Vector2(2.8, 2.8)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Emote/EmoteFaceHappy:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.603133, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [false, true, true, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tqhgd"]
@@ -394,7 +394,7 @@ collision_mask = 512
 metadata/_edit_group_ = true
 
 [node name="DinkRadiusShape" type="CollisionShape2D" parent="DinkRadius"]
-position = Vector2(4.99999, 2.99996)
+position = Vector2(0.999989, 2.99994)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_3r5h2")
 debug_color = Color(0.686275, 0.494118, 0.239216, 0.215686)
