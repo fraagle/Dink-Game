@@ -82,6 +82,7 @@ func reached_goal(goal):
 	#get_tree().paused = true
 	$Player.enabled_controls = false
 	print('changing scene!')
+	await get_tree().create_timer(0.5).timeout
 	if next_scene is PackedScene:
 		#get_tree().paused = false
 		await LevelTransition.fade_to_black()
