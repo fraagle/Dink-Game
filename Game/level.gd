@@ -12,11 +12,15 @@ class_name Level
 
 @export var next_scene: PackedScene
 
-var spawn_point: Vector2
+var player_action
 
+var spawn_point: Vector2
+var dink_shake_noise: FastNoiseLite
 
 func _ready() -> void:	
 	connect_children(self)
+	
+	dink_shake_noise = FastNoiseLite.new()
 	
 	
 func connect_children(parent):
@@ -25,6 +29,11 @@ func connect_children(parent):
 		if child is Spawn and is_instance_valid(child):
 			child.player_detected.connect(set_spawn_point)
 			if print_world_events: print('spawn connected')
+		
+		# Connecting Dinks
+		if child is Dink and is_instance_valid(child):
+			child.player_detected.connect(dink_juice)
+			if print_world_events: print('dink connected')
 		
 		# Connecting spikes
 		if child is Spike and is_instance_valid(child):
@@ -35,14 +44,28 @@ func connect_children(parent):
 			child.player_detected.connect(reached_goal)
 			if print_world_events: print('goal connectedd')
 
+		if child is Player and is_instance_valid(child):
+			child.player_dinked.connect(interpret_player_action)
+
 		# Recursively check the children of each node
 		if child.has_method("get_children"):
 			connect_children(child)
 
+#func connect_player_actions():
+	#player_dinked.connect(interpret_player_action)
 
 func _process(delta: float) -> void:
 	#print(player.position)
 	$UI/DeathCounter.text = str(death_count)
+	
+	
+func interpret_player_action(action):
+	player_action = action
+	#await get_tree().create_timer(0.1).timeout # Small delay to ensure signal is processed
+	#player_action = null # Reset so it only triggers on actual dink
+	
+
+	
 	
 func set_spawn_point(spawn):
 	if spawn_point != spawn.global_position:
@@ -71,7 +94,7 @@ func respawn(spikes):
 	await get_tree().create_timer(0.5).timeout
 	$Player/AnimatedSprite2D.visible = true
 	#Input.flush_buffered_events()
-	await get_tree().create_timer(0.1).timeout
+	#await get_tree().create_timer(0.5).timeout
 	get_tree().paused = false
 	#set_process_input(true)
 
@@ -92,3 +115,13 @@ func reached_goal(goal):
 	else:
 		get_tree().quit()
 	
+func dink_juice(dink):
+	print('dink juice!')
+	if player_action == "dinked":
+		
+		dink.apply_bounce_effect()
+		player_action = null
+		
+		
+func start_dink_shake(dink, scale_value) -> void:
+	dink.scale = Vector2(scale_value, scale_value)

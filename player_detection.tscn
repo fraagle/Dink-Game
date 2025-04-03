@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cefqhuvof4frl"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_o4ar2"]
+a = Vector2(-1, -43)
+b = Vector2(-1, 43)
+
+[node name="PlayerDetection" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = SubResource("SegmentShape2D_o4ar2")
+debug_color = Color(0.857023, 0.365594, 3.85046e-07, 0.42)

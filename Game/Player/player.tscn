@@ -265,8 +265,8 @@ size = Vector2(6, 6)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_625at"]
 size = Vector2(3.75, 3.75)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3r5h2"]
-size = Vector2(55.9999, 56)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tqhgd"]
+size = Vector2(39.9999, 44.0001)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_77fjt"]
 radius = 4.0
@@ -388,15 +388,15 @@ shape = SubResource("RectangleShape2D_625at")
 debug_color = Color(0.798968, 0.411096, 0.259094, 0.42)
 
 [node name="DinkRadius" type="Area2D" parent="."]
-position = Vector2(19, 25)
+position = Vector2(0, 24)
 collision_layer = 0
 collision_mask = 512
 metadata/_edit_group_ = true
 
 [node name="DinkRadiusShape" type="CollisionShape2D" parent="DinkRadius"]
-position = Vector2(0.999989, 2.99994)
+position = Vector2(22, -4.00002)
 rotation = 1.5708
-shape = SubResource("RectangleShape2D_3r5h2")
+shape = SubResource("RectangleShape2D_tqhgd")
 debug_color = Color(0.686275, 0.494118, 0.239216, 0.215686)
 
 [node name="DinkCollision" type="Area2D" parent="."]
@@ -439,6 +439,7 @@ volume_db = -5.299
 [node name="DeathParticles" parent="." instance=ExtResource("14_tqhgd")]
 
 [node name="RespawnParticles" parent="." instance=ExtResource("15_6v7ly")]
+visible = false
 
 [node name="Emote" type="Marker2D" parent="."]
 position = Vector2(0, -8)

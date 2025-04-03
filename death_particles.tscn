@@ -19,13 +19,14 @@ initial_velocity_max = 200.0
 gravity = Vector3(0, 100, 0)
 damping_min = 100.0
 damping_max = 1000.0
-scale_max = 2.0
+scale_min = 2.0
+scale_max = 3.0
 color_ramp = SubResource("GradientTexture1D_wlpas")
 
 [node name="DeathParticles" type="GPUParticles2D"]
 process_mode = 3
 emitting = false
-amount = 20
+amount = 10
 one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_akrrf")

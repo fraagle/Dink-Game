@@ -2,6 +2,9 @@ extends CharacterBody2D
 
 class_name Player
 
+signal player_dinked
+signal player_dashed
+
 @onready var death_particles: GPUParticles2D = $DeathParticles
 @onready var respawn_particles: GPUParticles2D = $RespawnParticles
 
@@ -115,6 +118,7 @@ func _physics_process(delta: float) -> void:
 	
 	handle_dink(input_axis,delta)
 	#dink_radius(input_axis)
+	
 	
 	
 	
@@ -395,11 +399,9 @@ func _on_dash_duration_timer_timeout() -> void:
 
 func _on_dash_effect_timer_timeout() -> void:
 	var input_axis := Input.get_axis("move_left", "move_right")
-	
+
 	if velocity.x != 0:
 		create_dash_effect(input_axis)
-	
-	
 	
 func handle_dink(input_axis, delta):
 		if target_position != Vector2.ZERO:
@@ -408,14 +410,17 @@ func handle_dink(input_axis, delta):
 			#print(direction)
 			
 			if Input.is_action_just_pressed('move_dink') and not is_on_floor() and not is_on_wall():
+				player_dinked.emit("dinked")
 				do_dink(dink_direction)
-				dink_input_axis = input_axis
+				dink_input_axis = input_axis  
 				
 				
 		if input_axis != 0:
-			dink_radius.position.x = input_axis * dink_radius_pos
+			
+			dink_radius.position.x = input_axis * dink_radius_pos 
 	
 func do_dink(dink_direction):
+		
 		#print(direction)
 		dink = true
 		#dink_particles.restart()
@@ -425,6 +430,9 @@ func do_dink(dink_direction):
 
 
 func _on_dink_detector_body_entered(body: Node2D) -> void:
+	# If player dink detector sees the dink infront of it:
+	
+	
 	if body.is_in_group('DinkRadius'):
 		#print('radius')
 		target_position = body.position

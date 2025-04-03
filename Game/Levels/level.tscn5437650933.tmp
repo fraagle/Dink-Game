@@ -59,7 +59,10 @@ rotation = -1.5708
 [node name="Dinks" type="Node" parent="."]
 
 [node name="Dink" parent="Dinks" instance=ExtResource("9_plfiy")]
-position = Vector2(-96, 144)
+position = Vector2(112, 216)
+
+[node name="Dink2" parent="Dinks" instance=ExtResource("9_plfiy")]
+position = Vector2(192, 184)
 
 [node name="Processing_death" type="Timer" parent="."]
 wait_time = 0.5
