@@ -259,14 +259,14 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kgjk5"]
-size = Vector2(6, 6)
+[sub_resource type="CircleShape2D" id="CircleShape2D_tqhgd"]
+radius = 3.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_625at"]
 size = Vector2(3.75, 3.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tqhgd"]
-size = Vector2(39.9999, 44.0001)
+size = Vector2(48, 44.0001)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_77fjt"]
 radius = 4.0
@@ -351,7 +351,7 @@ animation = &"idleball"
 autoplay = "idleball"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_kgjk5")
+shape = SubResource("CircleShape2D_tqhgd")
 
 [node name="JumpBufferTimer" type="Timer" parent="."]
 wait_time = 0.1
@@ -388,13 +388,13 @@ shape = SubResource("RectangleShape2D_625at")
 debug_color = Color(0.798968, 0.411096, 0.259094, 0.42)
 
 [node name="DinkRadius" type="Area2D" parent="."]
-position = Vector2(0, 24)
+position = Vector2(22, 20)
 collision_layer = 0
 collision_mask = 512
 metadata/_edit_group_ = true
 
 [node name="DinkRadiusShape" type="CollisionShape2D" parent="DinkRadius"]
-position = Vector2(22, -4.00002)
+position = Vector2(1.52588e-05, -4.00002)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_tqhgd")
 debug_color = Color(0.686275, 0.494118, 0.239216, 0.215686)

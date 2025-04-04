@@ -407,7 +407,7 @@ func handle_dink(input_axis, delta):
 		if target_position != Vector2.ZERO:
 			
 			dink_direction = (target_position - global_position).normalized()
-			#print(direction)
+			print(dink_direction)
 			
 			if Input.is_action_just_pressed('move_dink') and not is_on_floor() and not is_on_wall():
 				player_dinked.emit("dinked")
@@ -416,18 +416,24 @@ func handle_dink(input_axis, delta):
 				
 				
 		if input_axis != 0:
-			
 			dink_radius.position.x = input_axis * dink_radius_pos 
 	
 func do_dink(dink_direction):
-		
-		#print(direction)
 		dink = true
+		
+
+		#print(direction)
 		#dink_particles.restart()
 		#dink_particles.emitting = true
-		velocity.x = dink_direction[0] * movement_data.dink_speed
-		velocity.y =  dink_direction[1] * movement_data.dink_speed 
-
+		
+		velocity = dink_direction * movement_data.dink_speed
+		
+		
+		
+		
+		#velocity.x = dink_direction[0] * movement_data.dink_speed
+		#velocity.y =  abs(dink_direction[1]) * movement_data.dink_speed  # abs so that y direction cannot be negative = downwards
+		
 
 func _on_dink_detector_body_entered(body: Node2D) -> void:
 	# If player dink detector sees the dink infront of it:
@@ -445,7 +451,7 @@ func _on_dink_collision_area_entered(area: Area2D) -> void:
 	if area.is_in_group('DinkCollide'):
 		if dink:
 			velocity.x = dink_input_axis * movement_data.dink_speed / 1.5
-			velocity.y = -movement_data.dink_speed 
+			velocity.y = - movement_data.dink_speed
 			dink = false
 	
 	
